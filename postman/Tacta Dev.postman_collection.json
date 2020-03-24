@@ -1,0 +1,175 @@
+{
+	"info": {
+		"_postman_id": "704e395f-e0b8-4cf0-ad52-cdb4e1a6cfd7",
+		"name": "Tacta Dev",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"Duane\",\n\t\"email\":\"bester.duane@gmail.com\",\n\t\"password\":\"test1234!\"\n}"
+				},
+				"url": {
+					"raw": "{{host}}:{{port}}/users",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\":\"bester.duane@gmail.com\",\n\t\"password\":\"test1234!\"\n}"
+				},
+				"url": {
+					"raw": "{{host}}:{{port}}/users/login",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Me",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTc5NzY1Zjc5MmNlMTg1ZTQ4YjVhNDMiLCJpYXQiOjE1ODUwMTg3MjR9.2Y6nA_QkHmwpYz7Ej309DMv02jcYDy3XLYT8YYQAQp0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}:{{port}}/users/me",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"users",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Log Me Out",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTc5NzY1Zjc5MmNlMTg1ZTQ4YjVhNDMiLCJpYXQiOjE1ODUwMTg3MjR9.2Y6nA_QkHmwpYz7Ej309DMv02jcYDy3XLYT8YYQAQp0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{host}}:{{port}}/users/me/logout",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"users",
+						"me",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Log Me Out - All devices",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTc5NzY1Zjc5MmNlMTg1ZTQ4YjVhNDMiLCJpYXQiOjE1ODUwMTg5OTV9.hFMJeH7hVyuKv1uRLuHs5RZQUsxBx1lKcB6GpXysvK8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{host}}:{{port}}/users/me/logout/all",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"users",
+						"me",
+						"logout",
+						"all"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "apikey"
+	},
+	"variable": [
+		{
+			"id": "f948eef2-a696-4d4c-9a81-58c10d8af84e",
+			"key": "port",
+			"value": "3000",
+			"type": "string"
+		},
+		{
+			"id": "7270499b-1bcd-491b-a844-7e7186af1bf0",
+			"key": "host",
+			"value": "localhost",
+			"type": "string"
+		}
+	]
+}
