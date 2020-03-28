@@ -4,6 +4,7 @@ A NodeJS Express Server to serve TACTA's API.
 
 <details>
   <summary>Table Of Contents</summary>
+  
   1. [Developing Locally](#developing-locally)
       * [GraphQL](#graphql)
       * [REST](#rest)
