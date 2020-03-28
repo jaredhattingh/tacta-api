@@ -20,11 +20,31 @@ const userSchema = mongoose.Schema({
       }
     }
   },
+  phone: {
+    type: String,
+    required: true,
+    unique: true,
+    lowercase: true,
+    validate: value => {
+      const contraints = {
+        format: {
+          pattern: "/^d{10}$/",
+          flags: "i",
+          message: "Can only be a 10 digit number"
+        }
+      };
+      if (!validator.validate(value, contraints)) {
+        throw new Error({ error: "Invalid Phone Number" });
+      }
+    }
+  },
   password: {
     type: String,
     required: true,
     minLength: 7
   },
+  createdAt: { type: Date, required: true, default: Date.now },
+  updatedAt: { type: Date, required: true, default: Date.now },
   tokens: [
     {
       token: {
@@ -41,6 +61,7 @@ userSchema.pre("save", async function(next) {
   if (user.isModified("password")) {
     user.password = await bcrypt.hash(user.password, 8);
   }
+  user.updatedAt(Date.now());
   next();
 });
 
@@ -67,5 +88,4 @@ userSchema.statics.findByCredentials = async (email, password) => {
 };
 
 const User = mongoose.model("User", userSchema);
-
 module.exports = User;
