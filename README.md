@@ -9,6 +9,7 @@ A NodeJS Express Server to serve TACTA's API.
    - [GraphQL](#graphql)
    - [REST](#rest)
      - [Authentication](#authentication)
+     - [Postman](#postman)
 1. [Testing](#testing)
 1. [Continuous Deployment](#continuous-deployment)
 
@@ -179,7 +180,7 @@ const auth = async (req, res, next) => {
 
 #### Postman
 
-You can import the [Postman collection](./postman/Tacta Dev.postman_collection.json) to make RESTful requests a whole lot easier!
+You can import the [Postman collection](./postman/Tacta%20Dev.postman_collection.json) to make RESTful requests a whole lot easier!
 
 ### Testing
 
