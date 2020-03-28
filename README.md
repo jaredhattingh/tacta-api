@@ -66,7 +66,9 @@ In the left hand side, we can form queries! Please verify that the example queri
 
 <details>
   <summary>Example Queries</summary>
-  
+
+Query:
+
 ```
 query {
   users {
@@ -94,6 +96,8 @@ Yields:
   }
 }
 ```
+
+Query:
 
 ```
 query {
