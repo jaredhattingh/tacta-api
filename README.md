@@ -20,6 +20,8 @@ A NodeJS Express Server to serve TACTA's API.
 > App will use the dev instance of a mongodb database in the mongo cloud.
 
 1. Check out this repo...
+   - `git clone git@github.com:duanebester/tacta-api.git`
+   - `cd tacta-api`
 1. Install dependencies
    - `npm i`
 1. Run app
