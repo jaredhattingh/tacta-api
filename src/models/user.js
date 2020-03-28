@@ -24,16 +24,8 @@ const userSchema = mongoose.Schema({
     type: String,
     required: true,
     unique: true,
-    lowercase: true,
     validate: value => {
-      const contraints = {
-        format: {
-          pattern: "/^d{10}$/",
-          flags: "i",
-          message: "Can only be a 10 digit number"
-        }
-      };
-      if (!validator.validate(value, contraints)) {
+      if (!validator.isMobilePhone(value)) {
         throw new Error({ error: "Invalid Phone Number" });
       }
     }
@@ -43,8 +35,8 @@ const userSchema = mongoose.Schema({
     required: true,
     minLength: 7
   },
-  createdAt: { type: Date, required: true, default: Date.now },
-  updatedAt: { type: Date, required: true, default: Date.now },
+  createdAt: { type: Date, default: Date.now },
+  updatedAt: { type: Date, default: Date.now },
   tokens: [
     {
       token: {
@@ -61,7 +53,7 @@ userSchema.pre("save", async function(next) {
   if (user.isModified("password")) {
     user.password = await bcrypt.hash(user.password, 8);
   }
-  user.updatedAt(Date.now());
+  user.updatedAt = Date.now();
   next();
 });
 

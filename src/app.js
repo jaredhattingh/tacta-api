@@ -9,9 +9,9 @@ require("./db/db");
 
 // App Setup
 const app = express();
-app.use(express.json());
 app.use(compression());
 app.use(helmet());
+app.use(express.json());
 
 // REST Endpoints
 app.use(userRouter);
