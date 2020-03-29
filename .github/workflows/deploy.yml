@@ -7,27 +7,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
+      - uses: actions/checkout@v1
 
-    - name: Copy file via scp
-      uses: appleboy/scp-action@master
-      env:
-        HOST: ${{ secrets.SSH_HOST }}
-        USERNAME: ${{ secrets.SSH_USER }}
-        PORT: ${{ secrets.SSH_PORT }}
-        KEY: ${{ secrets.SSH_KEY }}
-      with:
-        source: "."
-        target: "/opt/app"
+      - name: Copy file via scp
+        uses: appleboy/scp-action@master
+        env:
+          HOST: ${{ secrets.SSH_HOST }}
+          USERNAME: ${{ secrets.SSH_USER }}
+          PORT: ${{ secrets.SSH_PORT }}
+          KEY: ${{ secrets.SSH_KEY }}
+        with:
+          source: "."
+          target: "/opt/app"
 
-    - name: Install Deps and Restart
-      uses: fifsky/ssh-action@master
-      with:
-        command: |
-          cd /opt/app
-          npm install
-          pm2 restart tacta-dev-api
-        host: ${{ secrets.SSH_HOST }}
-        user: duane
-        key: ${{ secrets.SSH_KEY}}
-    
+      - name: Install Deps and Restart
+        uses: fifsky/ssh-action@master
+        with:
+          command: |
+            cd /opt/app
+            npm install
+            pm2 restart ecosystem.config.js
+          host: ${{ secrets.SSH_HOST }}
+          user: duane
+          key: ${{ secrets.SSH_KEY}}
