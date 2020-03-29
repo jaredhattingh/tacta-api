@@ -27,4 +27,7 @@ jobs:
         USERNAME: ${{ secrets.SSH_USER }}
         PORT: ${{ secrets.SSH_PORT }}
         KEY: ${{ secrets.SSH_KEY }}
-        script: pm2 restart tacta-dev-api
+        script: |
+          cd /opt/app/src
+          npm install
+          pm2 restart tacta-dev-api
