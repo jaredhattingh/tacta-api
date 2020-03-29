@@ -20,14 +20,14 @@ jobs:
         source: "."
         target: "/opt/app"
 
-    - name: Executing remote  command
-      uses: appleboy/ssh-action@master
+    - name: Install Deps and Restart
+      uses: fifsky/ssh-action@master
       with:
-        host: ${{ secrets.SSH_HOST }}
-        USERNAME: ${{ secrets.SSH_USER }}
-        PORT: ${{ secrets.SSH_PORT }}
-        KEY: ${{ secrets.SSH_KEY }}
-        script: |
+        command: |
           cd /opt/app/src
           npm install
           pm2 restart tacta-dev-api
+        host: ${{ secrets.SSH_HOST }}
+        user: duane
+        key: ${{ secrets.SSH_KEY}}
+    
