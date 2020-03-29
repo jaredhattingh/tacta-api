@@ -27,4 +27,4 @@ jobs:
         USERNAME: ${{ secrets.SSH_USER }}
         PORT: ${{ secrets.SSH_PORT }}
         KEY: ${{ secrets.SSH_KEY }}
-        script: cat /opt/app/README.md
+        script: pm2 restart tacta-dev-api
