@@ -2,7 +2,7 @@
   "name": "tacta-api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/app.js",
   "scripts": {
     "start": "env-cmd -f ./.env nodemon src/app.js"
   },
