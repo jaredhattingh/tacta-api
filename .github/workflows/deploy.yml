@@ -24,7 +24,7 @@ jobs:
       uses: fifsky/ssh-action@master
       with:
         command: |
-          cd /opt/app/src
+          cd /opt/app
           npm install
           pm2 restart tacta-dev-api
         host: ${{ secrets.SSH_HOST }}
