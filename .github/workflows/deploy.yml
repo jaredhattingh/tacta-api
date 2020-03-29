@@ -18,7 +18,7 @@ jobs:
           KEY: ${{ secrets.SSH_KEY }}
         with:
           source: "."
-          target: "/opt/app"
+          target: "~/app"
 
       - name: Install Deps and Restart
         uses: fifsky/ssh-action@master
