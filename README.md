@@ -47,7 +47,7 @@ Our [GraphQL Schema](./src/graphql/schema.js) neatly composes our [models](./src
 
 > NOTE: As of now, GraphQL only supports querying of data, no mutations!
 
-With the app running, you can navigate to our local version of graphiql by going to [localhost/graphiql](http://localhost:3001/graphiql).
+With the app running, you can navigate to our local version of graphiql by going to [localhost/graphiql](http://localhost:3000/graphiql).
 
 This small interface allows us to nicely analyze what's available in the GraphQL API. Clear out any of the comments you might see in the first section. Please note the `Docs` button at the top right and click it. It should show a query of type RootQueryType. We can expand that to see a few fields:
 
